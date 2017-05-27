@@ -7,9 +7,14 @@ import (
 	"time"
 
 	stats "github.com/fukata/golang-stats-api-handler"
+	"github.com/google/gops/agent"
 )
 
 func main() {
+	if err := agent.Listen(nil); err != nil {
+		log.Fatal(err)
+	}
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/stats", stats.Handler)
 	mux.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {

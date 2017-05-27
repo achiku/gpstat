@@ -1,1 +1,2 @@
 gom 'github.com/fukata/golang-stats-api-handler'
+gom 'github.com/google/gops'
